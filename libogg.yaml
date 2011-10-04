@@ -1,0 +1,29 @@
+Name: libogg
+Summary: The Ogg bitstream file format library
+Version: 1.2.0
+Release: 1
+Group: System/Libraries
+License: BSD
+URL: http://www.xiph.org/
+Sources:
+    - http://downloads.xiph.org/releases/ogg/%{name}-%{version}.tar.gz
+Description: |
+    Libogg is a library for manipulating Ogg bitstream file formats.
+    Libogg supports both making Ogg bitstreams and getting packets from
+    Ogg bitstreams.
+
+SubPackages:
+    - Name: devel
+      Summary: Files needed for development using libogg
+      Group: Development/Libraries
+      Description: |
+          Libogg is a library used for manipulating Ogg bitstreams. The
+          libogg-devel package contains the header files and documentation
+          needed for development using libogg.
+
+    - Name: doc
+      Summary: Documentation for the Ogg runtime library
+      Group: Documentation
+      Description: |
+          Documentation for developing applications with libogg
+
