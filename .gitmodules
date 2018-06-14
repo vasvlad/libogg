@@ -1,3 +1,4 @@
 [submodule "libogg"]
 	path = libogg
-	url = https://git.xiph.org/ogg.git
+	url = https://git.merproject.org/mirror/ogg.git
+
