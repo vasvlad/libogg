@@ -1,6 +1,6 @@
 Name:       libogg
 Summary:    The Ogg bitstream file format library
-Version:    1.3.2
+Version:    1.3.3
 Release:    1
 Group:      System/Libraries
 License:    BSD
@@ -67,7 +67,7 @@ mv $RPM_BUILD_ROOT%{_docdir}/%{name} __installed_docs
 
 %files devel
 %defattr(-,root,root,-)
-%doc AUTHORS CHANGES README
+%doc AUTHORS CHANGES README.md
 %dir %{_includedir}/ogg
 %{_includedir}/ogg/ogg.h
 %{_includedir}/ogg/os_types.h
