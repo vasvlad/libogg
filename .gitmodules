@@ -1,4 +1,4 @@
 [submodule "libogg"]
 	path = libogg
-	url = https://git.sailfishos.org/mirror/ogg.git
+	url = https://github.com/sailfishos-mirror/ogg.git
 
