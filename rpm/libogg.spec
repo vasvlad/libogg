@@ -1,10 +1,11 @@
 Name:       libogg
 Summary:    The Ogg bitstream file format library
-Version:    1.3.4
+Version:    1.3.5
 Release:    1
 License:    BSD
 URL:        https://www.xiph.org/
 Source0:    %{name}-%{version}.tar.bz2
+BuildRequires: cmake
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 
@@ -37,11 +38,16 @@ Documentation for developing applications with libogg
 %autosetup -n %{name}-%{version}/%{name}
 
 %build
-%reconfigure --disable-static
+mkdir -p build
+pushd build
+%cmake -DBUILD_SHARED_LIBS=1 ..
 %make_build
+popd
 
 %install
+pushd build
 %make_install
+popd
 
 %post -p /sbin/ldconfig
 
@@ -60,8 +66,8 @@ Documentation for developing applications with libogg
 %{_includedir}/ogg/os_types.h
 %{_includedir}/ogg/config_types.h
 %{_libdir}/libogg.so
+%{_libdir}/cmake/Ogg/*.cmake
 %{_libdir}/pkgconfig/ogg.pc
-%{_datadir}/aclocal/ogg.m4
 
 %files doc
 %defattr(-,root,root,-)
