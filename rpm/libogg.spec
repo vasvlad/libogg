@@ -1,3 +1,4 @@
+%define keepstatic 1
 Name:       libogg
 Summary:    The Ogg bitstream file format library
 Version:    1.3.5
@@ -25,6 +26,15 @@ libogg-devel package contains the header files and documentation
 needed for development using libogg.
 
 
+%package devel-static
+Summary:    Files needed for development using libogg
+
+%description devel-static
+Libogg is a library used for manipulating Ogg bitstreams. The
+libogg-devel package contains the header files and documentation
+needed for development using libogg.
+
+
 %package doc
 Summary:    Documentation for the Ogg runtime library
 BuildArch:  noarch
@@ -40,8 +50,7 @@ Documentation for developing applications with libogg
 %build
 mkdir -p build
 pushd build
-%cmake -DBUILD_SHARED_LIBS=1 ..
-%make_build
+cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 popd
 
 %install
@@ -56,7 +65,7 @@ popd
 %files
 %defattr(-,root,root,-)
 %license COPYING
-%{_libdir}/libogg.so.*
+#%{_libdir}/libogg.so.*
 
 %files devel
 %defattr(-,root,root,-)
@@ -65,9 +74,13 @@ popd
 %{_includedir}/ogg/ogg.h
 %{_includedir}/ogg/os_types.h
 %{_includedir}/ogg/config_types.h
-%{_libdir}/libogg.so
+#%{_libdir}/libogg.so
 %{_libdir}/cmake/Ogg/*.cmake
 %{_libdir}/pkgconfig/ogg.pc
+
+%files devel-static
+%defattr(-,root,root,-)
+%{_libdir}/*.a
 
 %files doc
 %defattr(-,root,root,-)
