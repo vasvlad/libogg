@@ -50,7 +50,7 @@ Documentation for developing applications with libogg
 %build
 mkdir -p build
 pushd build
-cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+cmake -DCMAKE_POSITION_INDEPENDENT_CODE=ON -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 popd
 
 %install
